@@ -1,7 +1,6 @@
 import { Location } from '@angular/common';
-import { Component, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-import { ɵDomRendererFactory2 } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Blog } from 'src/app/models/blog';
 import { BlogService } from 'src/app/services/blog.service';
 import { MessageService } from 'src/app/services/message.service';
