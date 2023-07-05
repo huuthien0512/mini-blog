@@ -56,7 +56,7 @@ export class HomeComponent {
         link: '#',
         child: [
           {
-            name: 'Blog',
+            name: 'List',
             icon: 'view_list',
             link: '/my-blog',
             child: [],
