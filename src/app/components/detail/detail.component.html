@@ -33,7 +33,7 @@
         >{{ blog.pageView == null ? 0 : blog.pageView }} views</span
       >
       <span style="color: #20a0ff; margin-right: 20px; font-size: 12px">
-        {{ blog.editTime }}</span
+        {{ blog.editTime | date : "yyyy-MM-dd hh:mm:ss" }}</span
       >
 
       <mat-chip *ngFor="let tag of blog.tags" style="margin-left: 8px">
