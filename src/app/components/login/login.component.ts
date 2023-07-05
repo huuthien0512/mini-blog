@@ -98,8 +98,9 @@ export class LoginComponent {
       },
       error: (error) => {
         this.isLoading = false;
-        const message = error.error.message;
-        this.dialogService.openInfoDialog('Information', message);
+        if (error.status === 500) {
+          this.dialogService.openInfoDialog('Information', error.error.message);
+        }
       },
     });
   }
