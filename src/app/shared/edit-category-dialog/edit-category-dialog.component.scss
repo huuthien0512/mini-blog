@@ -1,0 +1,59 @@
+.dialog-header {
+  padding: 1.5rem 1.5rem 1rem;
+
+  .dialog-title {
+    height: unset !important;
+    padding: 0;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: #303133;
+  }
+
+  .mdc-dialog__title::before {
+    height: auto;
+  }
+}
+
+.dialog-content {
+  padding: 1rem 1.5rem;
+  color: #606266;
+  font-size: 1.4rem;
+
+  .icon-error {
+    color: #e6a23c;
+  }
+
+  .dialog-message {
+    margin-left: 1rem;
+  }
+
+  .search-form {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    padding: 1rem;
+
+    mat-icon {
+      position: absolute;
+      left: 1rem;
+    }
+  }
+}
+
+.dialog-btns {
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: right;
+
+  .btn {
+    font-size: 1.2rem;
+    border: 1px solid #dcdfe6;
+  }
+
+  .btn-ok {
+    color: #fff;
+    background-color: #409eff;
+    border-color: #409eff;
+  }
+}

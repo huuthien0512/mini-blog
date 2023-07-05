@@ -1,0 +1,25 @@
+<div class="dialog-header">
+  <div mat-dialog-title class="dialog-title">
+    <span>{{ title }}</span>
+  </div>
+</div>
+<div mat-dialog-content class="dialog-content">
+  <p class="dialog-message">{{ content }}</p>
+  <form class="search-form">
+    <mat-icon>create</mat-icon>
+    <input
+      type="text"
+      name="categoryName"
+      [(ngModel)]="inputValue"
+      [value]="inputValue"
+    />
+  </form>
+</div>
+<div mat-dialog-actions class="dialog-btns">
+  <button mat-stroked-button class="btn btn-ok" (click)="okAction()">
+    {{ okButtonLabel || "Ok" }}
+  </button>
+  <button mat-stroked-button class="btn btn-cancel" (click)="cancelAction()">
+    {{ cancelButtonLabel || "Cancel" }}
+  </button>
+</div>

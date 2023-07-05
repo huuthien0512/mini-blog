@@ -1,0 +1,74 @@
+<div class="user-tab-container">
+  <div style="display: flex; justify-content: center" #tableHeader>
+    <div class="search-bar">
+      <form class="search-form">
+        <mat-icon>search</mat-icon>
+        <input
+          type="text"
+          placeholder="Search user by username..."
+          name="search-input"
+          [(ngModel)]="keywords"
+        />
+      </form>
+      <button mat-stroked-button class="btn-action" (click)="searchClick()">
+        Search
+      </button>
+    </div>
+  </div>
+  <div class="card-container" #cardContainer>
+    <mat-card *ngFor="let user of users; let i = index" class="mat-card">
+      <mat-card-header>
+        <mat-card-title>{{ user?.nickname }}</mat-card-title>
+
+        <button type="button" class="btn-delete" (click)="deleteUser(user.id)">
+          <mat-icon>delete</mat-icon>
+          Delete
+        </button>
+      </mat-card-header>
+
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <div class="user-image">
+          <img
+            mat-card-image
+            [src]="user.userface"
+            [alt]="user.nickname"
+            style="width: 70px; height: 70px"
+          />
+        </div>
+        <div class="user-text">
+          <span>Username: </span><span>{{ user.username }}</span>
+        </div>
+        <div class="user-text">
+          <span>Email: </span><span>{{ user.email }}</span>
+        </div>
+        <div class="user-text">
+          <span>Registration time: </span
+          ><span>{{ user.regTime | date : "yyyy-MM-dd hh:mm:ss" }}</span>
+        </div>
+        <div class="user-text">
+          <span>User status: </span>
+          <mat-slide-toggle
+            [(ngModel)]="user.enabled"
+            (ngModelChange)="enabledChange(user.enabled, user.id, i)"
+          >
+          </mat-slide-toggle>
+        </div>
+        <div class="user-text">
+          <span>User role: </span>
+          <mat-chip>
+            {{ user.roleName }}
+          </mat-chip>
+
+          <!-- <button
+              mat-icon-button
+              style="padding-top: 0"
+              (click)="showRole(user.roles, user.id, i)"
+            >
+              <mat-icon>edit</mat-icon>
+            </button> -->
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

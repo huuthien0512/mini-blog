@@ -1,0 +1,138 @@
+.user-tab-container {
+  height: 100%;
+  .search-bar {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 0 1rem;
+
+    .search-form {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      position: relative;
+      width: 40rem;
+      padding: 1rem;
+
+      mat-icon {
+        position: absolute;
+        left: 1rem;
+      }
+    }
+  }
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    grid-gap: 1rem;
+    flex-wrap: wrap;
+    overflow: auto;
+    padding: 1rem 1rem;
+
+    .mat-card {
+      .mat-mdc-card-header {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem !important;
+
+        .mat-mdc-card-title {
+          font-size: 1.6rem;
+        }
+
+        .btn-delete {
+          color: #ff0509;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          background: none;
+        }
+      }
+
+      .mat-mdc-card-content {
+        padding-top: 1.6rem;
+
+        .user-image {
+          text-align: center;
+        }
+
+        .user-text {
+          text-align: left;
+          color: #20a0ff;
+          font-size: 12px;
+          margin-top: 13px;
+        }
+
+        mat-chip {
+          height: 2rem;
+          font-size: 1.2rem;
+          margin-right: 0.8rem;
+
+          .mat-mdc-chip-action-label {
+            color: #67c23a !important;
+          }
+
+          .mat-mdc-chip-action {
+            background-color: #f0f9eb;
+            border: 1px solid #e1f3d8;
+          }
+        }
+
+        .mat-mdc-slide-toggle {
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+
+  .mat-mdc-menu-panel {
+    width: 20rem;
+
+    .mat-mdc-select {
+      border: 1px solid #dcdfe6;
+      border-radius: 0.4rem;
+      padding-right: 0.5rem;
+
+      &:focus {
+        border-color: #409eff;
+      }
+
+      mat-select-trigger {
+        display: flex;
+        flex-wrap: wrap;
+
+        .mat-mdc-chip {
+          font-size: 1.2rem;
+          height: 2rem;
+          margin: 0.2rem 0 0.2rem 0.6rem;
+          border-radius: 0.4rem;
+
+          .mat-mdc-chip-action-label {
+            color: #909399 !important;
+          }
+
+          .mat-mdc-chip-remove {
+            padding: 0;
+          }
+
+          .mat-icon {
+            height: 1.2rem;
+            width: 1.2rem;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  .mat-mdc-option {
+    min-height: 3.4rem !important;
+    font-size: 1.4rem !important;
+  }
+  .mdc-list-item--selected .mdc-list-item__primary-text {
+    color: #409eff !important;
+  }
+}

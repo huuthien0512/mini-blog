@@ -1,0 +1,198 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./styles/variables";
+@import "./styles/mixins";
+
+@import "./styles/components/home";
+@import "./styles/components/my-blog";
+@import "./styles/components/published-tab";
+@import "./styles/components/draft-tab";
+@import "./styles/components/dustbin_tab";
+@import "./styles/components/post";
+
+@import "./styles/components/user-management";
+@import "./styles/components/category-management";
+@import "./styles/components/login";
+
+@import "./styles/utils/dialog";
+@import "./styles/utils/message";
+@import "./styles/utils/expand-list";
+@import "./styles/utils/spinner";
+@import "./styles/utils/blog-table";
+@import "./styles/utils/text";
+@import "./styles/utils/utils";
+
+html,
+body {
+  height: 100%;
+  font-size: 62.5%;
+  overflow: hidden;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.mat-drawer {
+  background-color: #ececec;
+}
+
+.mat-drawer-container {
+  background-color: white;
+}
+
+input {
+  width: 100%;
+  line-height: 3.6rem;
+  font-size: 1.4rem;
+  padding: 0 1rem 0 3rem;
+  outline: none;
+  border: none;
+  border-bottom: 0.01rem solid gray;
+
+  &.error {
+    border-bottom: 0.01rem solid red !important;
+  }
+
+  &:focus {
+    border-bottom: 0.01rem solid #409eff !important;
+  }
+
+  &::placeholder {
+    color: #b9bbc0 !important;
+  }
+}
+
+select {
+  width: 100%;
+  height: 3.6rem;
+  font-size: 1.4rem;
+  padding: 0 1rem 0 1rem;
+  outline: none;
+  border: none;
+  border-bottom: 0.01rem solid gray;
+  border-radius: 0.3rem;
+
+  option.select-placeholder {
+    color: #b9bbc0 !important;
+  }
+}
+
+button {
+  border: none;
+
+  &.disabled {
+    color: #00000061 !important;
+    background-color: #0000001f !important;
+  }
+
+  &.btn-action {
+    color: #ffffff !important;
+    background-color: #409eff;
+  }
+
+  &.btn-create {
+    color: #ffffff !important;
+    background-color: #31bf15;
+  }
+}
+
+.mat-checkbox .mat-checkbox-frame {
+  border-color: black;
+  background-color: #dddddd;
+}
+
+.mat-mdc-checkbox.mat-accent {
+  --mdc-checkbox-selected-focus-icon-color: #409eff;
+  --mdc-checkbox-selected-hover-icon-color: #409eff;
+  --mdc-checkbox-selected-icon-color: #409eff;
+  --mdc-checkbox-selected-pressed-icon-color: #409eff;
+}
+
+.mat-mdc-form-field-infix {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 0;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  font-size: 14px;
+  min-height: 4.8rem;
+  background-color: #fafafa;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+.mat-mdc-table {
+  table-layout: fixed !important;
+}
+
+.mdc-data-table__header-cell {
+  padding: 0;
+}
+
+.mat-mdc-cell {
+  white-space: nowrap;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.m-05 {
+  margin: 0.5rem;
+}
+
+.angular-editor-button {
+  width: 2.8rem;
+  height: 2.8rem;
+  font-size: 1.4rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0 0 0.2rem;
+}
+
+.mat-mdc-chip-action-label {
+  color: #409eff !important;
+}
+
+.angular-editor-toolbar {
+  background-color: white !important;
+  border-radius: 0.5rem;
+  padding: 0 0.5rem !important;
+}
+
+.angular-editor-wrapper {
+  // height: 45rem;
+  background-color: white;
+
+  .angular-editor-textarea {
+    height: 100% !important;
+    outline: none;
+  }
+}
+
+.btn-return {
+  .mdc-button__ripple {
+    display: none !important;
+  }
+
+  .mat-mdc-button-ripple {
+    display: none !important;
+  }
+
+  .mat-mdc-button-touch-target {
+    display: none !important;
+  }
+}
+
+/* Hide scroll when open dialog*/
+.cdk-global-scrollblock {
+  overflow-y: auto;
+}

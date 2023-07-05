@@ -1,0 +1,80 @@
+<div class="home-container">
+  <mat-toolbar class="header">
+    <div class="home-title">Mini Blog</div>
+    <div class="user-info-container">
+      <div class="user-info-trigger" mat-button [matMenuTriggerFor]="menu">
+        <span class="user-info-name">
+          {{ currentUserName }}
+        </span>
+        <mat-icon
+          fontIcon="keyboard_arrow_down"
+          class="user-info-icon"
+        ></mat-icon>
+      </div>
+      <mat-menu #menu="matMenu" class="custom-menu">
+        <ng-container
+          *ngFor="let userItem of userMenu | slice : 0 : userMenu.length - 1"
+        >
+          <button
+            *ngIf="userItem.isShow"
+            mat-menu-item
+            (click)="onSelectItem(userItem)"
+            disabled
+          >
+            {{ userItem.name }}
+          </button>
+          <mat-divider></mat-divider
+          ><button
+            mat-menu-item
+            (click)="onSelectItem(userMenu[userMenu.length - 1])"
+          >
+            {{ userMenu[userMenu.length - 1].name }}
+          </button>
+        </ng-container>
+      </mat-menu>
+    </div></mat-toolbar
+  >
+  <mat-sidenav-container class="content-container">
+    <mat-sidenav class="sidenav" mode="side" opened>
+      <mat-nav-list class="sidenav-list">
+        <ng-container *ngFor="let item of sidenavMenu">
+          <a
+            *ngIf="!item.child.length && item.isShow"
+            mat-list-item
+            [routerLink]="item.link"
+            class="sub-sidenav-item"
+          >
+            <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+            {{ item.name }}</a
+          >
+
+          <mat-expansion-panel
+            *ngIf="item.child.length && item.isShow"
+            class="expansion-panel"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title> {{ item.name }} </mat-panel-title>
+              <mat-icon>{{ item.icon }}</mat-icon>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <ng-container *ngFor="let subItem of item.child">
+                <a
+                  *ngIf="subItem.isShow"
+                  mat-list-item
+                  [routerLink]="subItem.link"
+                  class="sub-sidenav-item"
+                >
+                  <mat-icon matListItemIcon>{{ subItem.icon }}</mat-icon>
+                  {{ subItem.name }}</a
+                >
+              </ng-container>
+            </mat-nav-list>
+          </mat-expansion-panel>
+        </ng-container>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

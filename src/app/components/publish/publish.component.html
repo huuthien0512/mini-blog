@@ -1,0 +1,106 @@
+<div class="post-article">
+  <div class="header" #postHeader>
+    <mat-toolbar>
+      <select style="width: 15rem" [(ngModel)]="blog.categoryId">
+        <option class="select-placeholder" value="-1" disabled selected hidden>
+          Select category
+        </option>
+        <option
+          *ngIf="categoryError || categories.length === 0"
+          value=""
+          disabled
+          selected
+        >
+          Data Empty
+        </option>
+        <option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+
+      <form class="search-form">
+        <input
+          type="text"
+          name="title"
+          class="input-title"
+          placeholder="Please enter a title..."
+          [(ngModel)]="blog.title"
+        />
+      </form>
+
+      <div class="tag-container">
+        <mat-chip
+          *ngFor="let tag of blog.dynamicTags"
+          class="tag"
+          (removed)="handleClose(tag)"
+        >
+          {{ tag }}
+          <button matChipRemove>
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-chip>
+
+        <form *ngIf="showTagInput">
+          <input
+            #tagInput
+            type="text"
+            name="input-tag"
+            class="input-new-tag"
+            (keyup.enter)="handleInputConfirm(tagInput.value)"
+            (blur)="handleInputConfirm(tagInput.value)"
+          />
+        </form>
+
+        <button
+          *ngIf="!showTagInput"
+          #tagInput
+          mat-flat-button
+          color="primary"
+          class="button-new-tag"
+          (click)="showInput()"
+        >
+          +Tag
+        </button>
+      </div>
+    </mat-toolbar>
+  </div>
+  <main class="main" #editorContainer>
+    <angular-editor
+      style="height: 100%; width: 100%"
+      [(ngModel)]="blog.htmlContent"
+      placeholder="Enter text here..."
+      [config]="editorConfig"
+    ></angular-editor>
+  </main>
+  <div class="post-footer" #postFooter>
+    <button
+      *ngIf="from !== undefined"
+      mat-stroked-button
+      (click)="cancelEdit()"
+    >
+      Canel edit
+    </button>
+
+    <ng-container *ngIf="from === '' || from === undefined || from === 'draft'">
+      <button mat-stroked-button (click)="saveBlog(2)">Save to draft</button>
+      <button
+        mat-flat-button
+        color="primary"
+        class="btn-post"
+        (click)="saveBlog(1)"
+      >
+        Post Article
+      </button>
+    </ng-container>
+
+    <button
+      *ngIf="from === 'post'"
+      mat-flat-button
+      color="primary"
+      class="btn-save-change"
+      (click)="saveBlog(1)"
+    >
+      Save changes
+    </button>
+  </div>
+</div>

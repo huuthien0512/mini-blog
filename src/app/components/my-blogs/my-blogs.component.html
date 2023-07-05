@@ -1,0 +1,26 @@
+<div class="blog-list">
+  <div class="main">
+    <mat-tab-group
+      mat-stretch-tabs="false"
+      mat-align-tabs="start"
+      preserveContent
+      [selectedIndex]="defaultTabIndex"
+    >
+      <mat-tab label="Published">
+        <ng-template matTabContent>
+          <app-published-tab></app-published-tab>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Draft">
+        <ng-template matTabContent>
+          <app-draft-tab></app-draft-tab>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Dustbin">
+        <ng-template matTabContent>
+          <app-dustbin-tab></app-dustbin-tab>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

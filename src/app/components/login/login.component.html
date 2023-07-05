@@ -1,0 +1,124 @@
+<form class="login-form" [formGroup]="currentForm" (ngSubmit)="onSubmit()">
+  <div class="form-header">
+    <h3 class="title">{{ isLoginMode ? "Login" : "Register" }}</h3>
+  </div>
+  <div class="form-content">
+    <div class="login-item username">
+      <form class="search-form">
+        <mat-icon>person</mat-icon>
+        <input type="text" formControlName="username" placeholder="Username" />
+      </form>
+      <ng-container
+        *ngIf="
+          currentForm.controls['username'].dirty ||
+          currentForm.controls['username'].touched
+        "
+      >
+        <p
+          *ngFor="
+            let error of currentForm.controls['username'].errors | keyvalue
+          "
+          class="error-message"
+        >
+          {{ "Username" | errorMessage : error.key }}
+        </p>
+      </ng-container>
+    </div>
+    <div class="login-item password">
+      <form class="search-form">
+        <mat-icon>key</mat-icon>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+      </form>
+      <ng-container
+        *ngIf="
+          currentForm.controls['password'].dirty ||
+          currentForm.controls['password'].touched
+        "
+      >
+        <p
+          *ngFor="
+            let error of currentForm.controls['password'].errors | keyvalue
+          "
+          class="error-message"
+        >
+          {{ "Password" | errorMessage : error.key }}
+        </p>
+      </ng-container>
+    </div>
+
+    <div *ngIf="!isLoginMode" class="login-item confirm-password">
+      <form class="search-form">
+        <mat-icon>key</mat-icon>
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="Confirm Password"
+        />
+      </form>
+      <ng-container
+        *ngIf="
+          currentForm.controls['confirmPassword'].dirty ||
+          currentForm.controls['confirmPassword'].touched
+        "
+      >
+        <p
+          *ngFor="
+            let error of currentForm.controls['confirmPassword'].errors
+              | keyvalue
+          "
+          class="error-message"
+        >
+          {{ "Confirm Password" | errorMessage : error.key }}
+        </p>
+      </ng-container>
+    </div>
+
+    <div *ngIf="isLoginMode" class="login-item remember">
+      <input
+        type="checkbox"
+        id="remember"
+        name="remember"
+        formControlName="remember"
+      />
+      <label for="remember">Remember</label>
+    </div>
+    <div class="login-item action">
+      <button
+        style="display: flex"
+        mat-stroked-button
+        class="btn-action"
+        [ngClass]="{ disabled: currentForm.invalid }"
+        [disabled]="currentForm.invalid || isLoading"
+      >
+        <span *ngIf="!isLoading; else spinner">{{
+          isLoginMode ? "Login" : "Register"
+        }}</span>
+        <ng-template #spinner>
+          <mat-spinner [diameter]="20" [strokeWidth]="3"></mat-spinner>
+        </ng-template>
+      </button>
+    </div>
+    <div class="change-mode">
+      <div *ngIf="!isLoginMode" class="login-navigate">
+        Have an account ?
+        <a
+          ><span class="change-mode-text" (click)="changeToLogin()"
+            >Login</span
+          ></a
+        >
+      </div>
+      <div *ngIf="isLoginMode" class="register-navigate">
+        Need an account ?
+        <a
+          ><span class="change-mode-text" (click)="changeToRegister()"
+            >Register</span
+          ></a
+        >
+      </div>
+    </div>
+  </div>
+</form>

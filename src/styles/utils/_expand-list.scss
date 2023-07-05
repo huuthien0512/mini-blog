@@ -1,0 +1,26 @@
+.mat-expansion-panel {
+  background-color: unset;
+  padding: 0;
+
+  .mat-expansion-panel-header {
+    font-size: 16px;
+    font-weight: unset;
+    padding: 0 1.6rem;
+  }
+
+  .mdc-list {
+    padding: 0;
+  }
+
+  .mat-expansion-panel-content {
+    background-color: white;
+
+    .mat-expansion-panel-body {
+      padding: 0;
+
+      .mdc-list-item {
+        padding: 0 3.2rem;
+      }
+    }
+  }
+}

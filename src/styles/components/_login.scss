@@ -1,0 +1,81 @@
+.login-form {
+  border-radius: 15px;
+  background-clip: padding-box;
+  margin: 15rem auto;
+  width: 35rem;
+  padding: 35px 35px 15px 35px;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  -webkit-box-shadow: 0 0 25px #cac6c6;
+  box-shadow: 0 0 25px #cac6c6;
+
+  .title {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    color: #505458;
+  }
+
+  .form-content {
+    .login-item {
+      margin: 1.5rem 0;
+
+      .search-form {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        position: relative;
+        padding: 1rem;
+
+        mat-icon {
+          position: absolute;
+          left: 1rem;
+        }
+      }
+
+      .error-message {
+        color: #f56c6c;
+        font-size: 1.2rem;
+        padding-left: 1rem;
+      }
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      margin: 1rem 0;
+
+      input {
+        width: 1.4rem;
+        height: 1.4rem;
+        margin: 0 1rem;
+      }
+
+      label {
+        color: #409eff;
+        cursor: pointer;
+      }
+    }
+
+    .action {
+      margin: 3rem 0;
+
+      .btn-action {
+        width: 100%;
+
+        .mat-mdc-progress-spinner {
+          --mdc-circular-progress-active-indicator-color: white;
+        }
+      }
+    }
+
+    .change-mode {
+      text-align: center;
+      .change-mode-text {
+        cursor: pointer;
+        color: #409eff;
+      }
+    }
+  }
+}

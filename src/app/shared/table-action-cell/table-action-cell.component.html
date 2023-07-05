@@ -1,0 +1,28 @@
+<button
+  class="m-1"
+  *ngIf="canEdit"
+  mat-stroked-button
+  [disabled]="showSelectionCol"
+  (click)="editBtnClick()"
+>
+  Edit
+</button>
+<button
+  class="m-05"
+  *ngIf="canRestore"
+  mat-stroked-button
+  (click)="restoreBtnClick()"
+  [disabled]="showSelectionCol"
+>
+  Restore
+</button>
+<button
+  class="m-05"
+  *ngIf="canDelete"
+  mat-flat-button
+  color="warn"
+  (click)="deleteBtnClick()"
+  [disabled]="showSelectionCol"
+>
+  Delete
+</button>

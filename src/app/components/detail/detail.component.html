@@ -1,0 +1,48 @@
+<div>
+  <button mat-button class="btn-return" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>Return
+  </button>
+
+  <ng-container *ngIf="blog">
+    <div style="text-align: center">
+      <h3 style="margin-top: 0; margin-bottom: 0; font-weight: bold">
+        {{ blog.title }}
+      </h3>
+    </div>
+    <div
+      style="
+        width: 100%;
+        margin-top: 5px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      "
+    >
+      <div
+        style="
+          display: inline;
+          color: #20a0ff;
+          margin-left: 50px;
+          margin-right: 20px;
+          font-size: 12px;
+        "
+      >
+        {{ blog.nickname }}
+      </div>
+      <span style="color: #20a0ff; margin-right: 20px; font-size: 12px"
+        >{{ blog.pageView == null ? 0 : blog.pageView }} views</span
+      >
+      <span style="color: #20a0ff; margin-right: 20px; font-size: 12px">
+        {{ blog.editTime }}</span
+      >
+
+      <mat-chip *ngFor="let tag of blog.tags" style="margin-left: 8px">
+        {{ tag.tagName }}
+      </mat-chip>
+
+      <span style="margin: 0px 50px 0px 0px"></span>
+    </div>
+  </ng-container>
+
+  <div #htmlContent></div>
+</div>
