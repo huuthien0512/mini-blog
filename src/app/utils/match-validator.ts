@@ -13,7 +13,7 @@ export function matchValidator(
     if (
       control.value &&
       matchingControl.value &&
-      control.value === matchingControl.value
+      control.value !== matchingControl.value
     ) {
       matchingControl.setErrors({ match: true });
     } else {
